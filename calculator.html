@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function show_exp(){
+                expression = document.getElementById("expression").value 
+                try{
+                    answer = eval(expression)
+                    console.log(`${expression} = ${answer}`)
+                }catch{
+                    console.log("Bad expression")
+                } 
+                
+            }
+
+            function input_num(num){
+                expression = document.getElementById("expression").value 
+                new_expression = expression+num
+                document.getElementById("expression").value = new_expression
+            }
+
+            function backspace(){
+                expression = document.getElementById("expression").value 
+                console.log(typeof(expression))
+                expression=expression.slice(0,-1)
+                document.getElementById('expression').value = expression
+            }
+        </script>
+
+    </head>
+    <body>
+        <h1 align="center">Calculators</h1>
+        <table>
+            <tr>
+                <input type="text" id="expression" placeholder="3*5">
+            </tr>
+            <tr>
+                <td><button onclick="input_num(1)">1</button></td>
+                <td><button onclick="input_num(2)">2</button></td>
+                <td><button onclick="input_num(3)">3</button></td>
+                <td><button onclick="input_num('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="input_num(4)">4</button></td>
+                <td><button onclick="input_num(5)">5</button></td>
+                <td><button onclick="input_num(6)">6</button></td>
+                <td><button onclick="input_num('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="input_num(7)">7</button></td>
+                <td><button onclick="input_num(8)">8</button></td>
+                <td><button onclick="input_num(9)">9</button></td>
+                <td><button onclick="input_num('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button style="background-color: maroon;" onclick="backspace()">C</button></td>
+                <td><button onclick="input_num(0)">0</button></td>
+                <td><button style="background-color: chartreuse;" onclick="show_exp()">=</button></td>
+                <td><button onclick="input_num('/')">/</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
